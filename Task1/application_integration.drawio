@@ -1,0 +1,175 @@
+<mxfile host="app.diagrams.net" modified="2026-04-13T18:05:00.000Z" agent="Codex" version="26.0.11" type="device">
+  <diagram id="application-integration" name="Интеграции приложений">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Схема интеграции приложений и участников процессов" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="620" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Сплошные линии: системные интеграции. Пунктир: ручные взаимодействия через сотрудников, email и Excel." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="20" y="52" width="760" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="depgroup" value="Процесс открытия депозита" style="swimlane;html=1;rounded=1;startSize=28;fillColor=#fffaf2;strokeColor=#e0c36e;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="90" width="2320" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="loanroup" value="Процесс открытия кредита" style="swimlane;html=1;rounded=1;startSize=28;fillColor=#f4f8ff;strokeColor=#8eaadb;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="640" width="2320" height="460" as="geometry" />
+        </mxCell>
+
+        <mxCell id="client" value="Клиент" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="170" width="50" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="branchemp" value="Сотрудник отделения" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="320" width="50" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="callactor" value="Сотрудник кол-центра" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="460" width="50" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="backofficeactor" value="Бэк-офис депозитов" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="320" width="50" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="creditactor" value="Отдел кредитования" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1890" y="320" width="50" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="branchabs" value="АБС банка" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="280" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="callcenter" value="Система кол-центра" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="450" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mail" value="Корпоративная почта" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="280" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="excel" value="Excel-файл&#xa;расчета ставок" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="970" y="280" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sms" value="SMS-шлюз / сервис&#xa;уведомлений" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="970" y="150" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="creditabssection" value="АБС, кредитный раздел" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="280" width="190" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d1" value="личный визит" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="0.5" y="2" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_client_branch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="client" target="branchemp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_branch_abs" value="ручной ввод заявки / открытие депозита" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="branchemp" target="branchabs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_client_call" value="звонок до визита" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="client" target="callactor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_call_sys" value="регистрация обращения" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="callactor" target="callcenter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_call_abs" value="обращение по депозиту" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#82b366;" edge="1" parent="1" source="callcenter" target="branchabs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_abs_back" value="обработка заявки из АБС" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="branchabs" target="backofficeactor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_branch_mail" value="запрос ставки по email" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;dashed=1;strokeColor=#d6b656;" edge="1" parent="1" source="branchemp" target="mail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_back_mail" value="ответ по ставке / спецставке" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;dashed=1;strokeColor=#d6b656;" edge="1" parent="1" source="backofficeactor" target="mail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_back_excel" value="ручной расчет ставки" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;dashed=1;strokeColor=#d6b656;" edge="1" parent="1" source="backofficeactor" target="excel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_credit_excel" value="параметры риска для спецставки" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;dashed=1;strokeColor=#9673a6;" edge="1" parent="1" source="creditactor" target="excel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_credit_abs_dep" value="анализ риска в кредитном разделе АБС" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="creditactor" target="creditabssection">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_abs_sms" value="SMS о доступной ставке" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" parent="1" source="branchabs" target="sms">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sms_client" value="уведомление клиенту" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#b85450;" edge="1" parent="1" source="sms" target="client">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_back_abs_dep" value="сохранение рассчитанной ставки / договора" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="backofficeactor" target="branchabs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="loanclient" value="Клиент" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="740" width="50" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="loanbranch" value="Сотрудник отделения" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="900" width="50" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="loancreditmgr" value="Менеджер отдела&#xa;кредитования" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="900" width="60" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="loanabs" value="АБС банка" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="860" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="conveyor" value="Кредитный конвейер" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="830" y="860" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="scoring" value="Система кредитного&#xa;скоринга" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="730" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bki" value="Бюро кредитных историй" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="730" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="historydata" value="Данные АБС по клиенту и&#xa;история платежей" style="shape=dataStorage;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="830" y="730" width="220" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_loan_client_branch" value="визит в отделение" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="loanclient" target="loanbranch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_loan_branch_abs" value="оформление заявки" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="loanbranch" target="loanabs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_abs_conv" value="интеграция по БД, 1 раз в сутки" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeWidth=2;" edge="1" parent="1" source="loanabs" target="conveyor">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="900" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_conv_scoring" value="API-вызов при скоринге" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1" source="conveyor" target="scoring">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_scoring_bki" value="онлайн-запрос кредитной истории" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d79b00;" edge="1" parent="1" source="scoring" target="bki">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_abs_history" value="выгрузка данных из БД раз в сутки" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#6c8ebf;" edge="1" parent="1" source="loanabs" target="historydata">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_hist_scoring" value="данные для скоринга из внутренних систем" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#6c8ebf;" edge="1" parent="1" source="historydata" target="scoring">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mgr_conv" value="анализ заявки и решение" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="loancreditmgr" target="conveyor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_conv_abs_final" value="финальный статус, 1 раз в сутки" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeWidth=2;strokeColor=#9673a6;" edge="1" parent="1" source="conveyor" target="loanabs">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="940" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_abs_client_money" value="зачисление кредитных средств на счет" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="loanabs" target="loanclient">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note1" value="Узкие места депозитного процесса: ручной расчет ставки, согласование через email, отсутствие сквозного онлайн-процесса для клиента." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1850" y="130" width="430" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="note2" value="Узкие места кредитного процесса: пакетные обмены по БД раз в сутки между АБС, конвейером и источниками данных, что замедляет принятие решения и выдачу." style="shape=note;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1810" y="760" width="470" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
