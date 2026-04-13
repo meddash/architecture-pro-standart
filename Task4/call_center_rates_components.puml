@@ -1,0 +1,77 @@
+@startuml
+title Доступ кол-центров к депозитным ставкам - диаграмма компонентов
+top to bottom direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam rectangle {
+  RoundCorner 10
+}
+
+actor "Сотрудник\nвнутреннего кол-центра" as InternalAgent
+actor "Сотрудник\nпартнёрского кол-центра" as PartnerAgent
+actor "Бэк-офис\nдепозитов" as DepositBackOffice
+actor "Бэк-офис\nкредитов" as CreditBackOffice
+actor "Оператор\nсопровождения" as Operator
+
+package "Банковский контур" {
+  package "Сервис ставок" {
+    rectangle "UI управления\nставками" as RateAdminUi
+    rectangle "Ядро ставок" as RateCore
+    rectangle "Компонент публикации\nставок" as RatePublish
+    database "Хранилище ставок" as RateDb
+  }
+
+  package "Интеграция с внутренним кол-центром" {
+    rectangle "Read API / витрина\nдля кол-центра" as InternalApi
+  }
+
+  package "Экспорт для партнёра" {
+    rectangle "Генератор файлов\nвыгрузки" as FileGenerator
+    rectangle "Планировщик и повторы" as Scheduler
+    rectangle "Журнал отправок" as ExportLog
+  }
+
+  rectangle "Система внутреннего\nкол-центра" as InternalCC
+  rectangle "Мониторинг и оповещения" as Monitoring
+}
+
+package "Внешний контур партнёра" {
+  rectangle "Файловый шлюз /\nканал передачи" as FileChannel
+  rectangle "Система партнёрского\nкол-центра" as PartnerCC
+}
+
+DepositBackOffice --> RateAdminUi : изменяет ставки
+CreditBackOffice --> RateAdminUi : изменяет ставки\nв рамках прав
+RateAdminUi --> RateCore : команды управления
+RateCore --> RateDb : хранение ставок
+RateCore --> RatePublish : публикация новой версии
+
+InternalAgent --> InternalCC : консультация клиента
+InternalCC --> InternalApi : запрос актуальных ставок
+InternalApi --> RatePublish : читает опубликованную версию
+
+RatePublish --> FileGenerator : набор ставок\nдля внешней выгрузки
+FileGenerator --> ExportLog : версия файла,\nстатус сборки
+Scheduler --> FileGenerator : запуск по расписанию\nили повторно
+FileGenerator --> FileChannel : файл CSV/XLSX
+FileChannel --> PartnerCC : загрузка файла
+PartnerAgent --> PartnerCC : консультация клиента
+
+FileGenerator --> Monitoring : ошибки сборки / отправки
+Scheduler --> Monitoring : ошибки доставки / retry
+ExportLog --> Monitoring : статус выгрузок
+Operator --> Monitoring : контролирует сбои
+
+note right of RateCore
+Единый владелец
+и источник ставок
+для всех каналов
+end note
+
+note right of FileGenerator
+Формирует только
+разрешённый набор полей
+для внешнего партнёра
+end note
+
+@enduml

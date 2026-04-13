@@ -1,0 +1,34 @@
+@startuml
+title Доступ кол-центров к депозитным ставкам - диаграмма контекста
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam rectangle {
+  RoundCorner 10
+}
+
+actor "Сотрудник\nвнутреннего кол-центра" as InternalAgent
+actor "Сотрудник\nпартнёрского кол-центра" as PartnerAgent
+actor "Бэк-офис\nдепозитов" as DepositBackOffice
+actor "Бэк-офис\nкредитов" as CreditBackOffice
+actor "Сопровождение /\nоператор обмена" as Ops
+
+rectangle "Сервис ставок банка" as RateService
+rectangle "Система\nвнутреннего кол-центра" as InternalCC
+rectangle "Экспорт ставок\nдля партнёра" as ExportService
+rectangle "Внешняя система\nпартнёрского кол-центра" as PartnerCC
+rectangle "Файловый канал\nобмена" as FileChannel
+rectangle "Мониторинг и журналирование" as Monitoring
+
+DepositBackOffice --> RateService : ведение ставок
+CreditBackOffice --> RateService : ведение ставок\nв рамках прав
+InternalAgent --> InternalCC : консультирует клиента
+InternalCC --> RateService : получает актуальные ставки
+RateService --> ExportService : передаёт опубликованные ставки
+ExportService --> FileChannel : формирует и отправляет файл
+FileChannel --> PartnerCC : доставляет файл со ставками
+PartnerAgent --> PartnerCC : консультирует клиента
+ExportService --> Monitoring : журнал отправки,\nстатус выгрузки
+Ops --> Monitoring : контролирует ошибки\nи повторную отправку
+
+@enduml
